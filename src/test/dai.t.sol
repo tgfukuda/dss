@@ -24,9 +24,9 @@ import "ds-test/test.sol";
 import "../dai.sol";
 
 contract TokenUser {
-    Dai  token;
+    JPYF  token;
 
-    constructor(Dai token_) public {
+    constructor(JPYF token_) public {
         token = token_;
     }
 
@@ -92,7 +92,7 @@ contract DaiTest is DSTest {
     uint constant initialBalanceThis = 1000;
     uint constant initialBalanceCal = 100;
 
-    Dai token;
+    JPYF token;
     Hevm hevm;
     address user1;
     address user2;
@@ -102,13 +102,13 @@ contract DaiTest is DSTest {
     uint fee = 1;
     uint nonce = 0;
     uint deadline = 0;
-    address cal = 0x29C76e6aD8f28BB1004902578Fb108c507Be341b;
+    address cal = 0x4148AFc37d557fBa53a3318b9988ce02B7eF19db;
     address del = 0xdd2d5D3f7f1b35b7A0601D6A00DbB7D44Af58479;
-    bytes32 r = 0x8e30095d9e5439a4f4b8e4b5c94e7639756474d72aded20611464c8f002efb06;
-    bytes32 s = 0x49a0ed09658bc768d6548689bcbaa430cefa57846ef83cb685673a9b9a575ff4;
-    uint8 v = 27;
-    bytes32 _r = 0x85da10f8af2cf512620c07d800f8e17a2a4cd2e91bf0835a34bf470abc6b66e5;
-    bytes32 _s = 0x7e8e641e5e8bef932c3a55e7365e0201196fc6385d942c47d749bf76e73ee46f;
+    bytes32 r = 0xcdabc67793222798e3ba03f909701bb96f1a8cf482f88423b685c7aa1d151a0f;
+    bytes32 s = 0x167a3cab1f2779de47526230ebeff7fd981786101c72b3e4318a419efc437c36;
+    uint8 v = 28;
+    bytes32 _r = 0x162812d0efbe796a599aafa56261af5c0a92102363a43e0aea71ad16027879ee;
+    bytes32 _s = 0x3ec84b01accef1709a1137b5f40bf1e13b86e6b6cca2d5ce9b6be44727fc5427;
     uint8 _v = 27;
 
 
@@ -123,8 +123,8 @@ contract DaiTest is DSTest {
         self = address(this);
     }
 
-    function createToken() internal returns (Dai) {
-        return new Dai(99);
+    function createToken() internal returns (JPYF) {
+        return new JPYF(99);
     }
 
     function testSetupPrecondition() public {
@@ -287,7 +287,7 @@ contract DaiTest is DSTest {
     }
 
     function testDomain_Separator() public {
-        assertEq(token.DOMAIN_SEPARATOR(), 0x68a9504c1a7fba795f7730732abab11cb5fa5113edd2396392abd5c1bbda4043);
+        assertEq(token.DOMAIN_SEPARATOR(), 0xe740b194c73fc76ff5e68ce416e2d48cf7bfe343aa61f1bdbe75b8efa7fa27f1);
     }
 
     function testPermit() public {
